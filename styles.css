@@ -23,7 +23,8 @@
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; }
+html { overflow-x: clip; }
+body { margin: 0; min-width: 320px; overflow-x: clip; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 ::selection { color: var(--ink); background: var(--green); }
@@ -225,25 +226,25 @@ h2 { font-size: clamp(38px, 5vw, 62px); font-weight: 600; line-height: 1.04; mar
   .scroll-cue { left: 8%; }
 }
 @media (max-width: 720px) {
-  .site-header { height: 66px; padding: 0 6%; position: relative; z-index: 5; }
+  .site-header { height: 66px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); position: relative; z-index: 5; }
   .menu-toggle { display: grid; gap: 5px; place-content: center; width: 40px; height: 40px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
   .menu-toggle span { display: block; width: 16px; height: 1px; background: var(--ink); transition: transform .2s ease; }
   .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3px) rotate(45deg); }
   .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3px) rotate(-45deg); }
   .site-nav { display: none; position: absolute; top: 65px; left: 0; right: 0; background: var(--paper); padding: 20px 6% 25px; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 18px; }
   .site-nav.is-open { display: flex; }
-  .hero { height: auto; min-height: 0; padding: 65px 7% 78px; grid-template-columns: 1fr; gap: 34px; }
-  h1 { font-size: clamp(58px, 16vw, 88px); }
+  .hero { height: auto; min-height: 0; padding: 52px max(20px, env(safe-area-inset-right, 0px)) 78px max(20px, env(safe-area-inset-left, 0px)); grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  h1 { font-size: 58px; }
   .hero-summary { font-size: 14px; }
   .hero-art { width: min(100%, 430px); min-height: 0; aspect-ratio: 1.08; justify-self: end; }
   .scroll-cue { left: 7%; bottom: 23px; font-size: 8px; }
-  .section-pad { padding-left: 7%; padding-right: 7%; }
+  .section-pad { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
   .intro { padding-top: 76px; padding-bottom: 82px; grid-template-columns: 1fr; gap: 27px; }
   .intro-aside { grid-column: 1; }
-  .intro-main h2 { font-size: clamp(35px, 9vw, 48px); }
+  .intro-main h2 { font-size: 40px; }
   .about-facts { grid-template-columns: 1fr 1fr; }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 17px; margin-bottom: 28px; }
-  .section-heading h2 { font-size: clamp(42px, 11vw, 58px); }
+  .section-heading h2 { font-size: 44px; }
   .section-heading > p { margin: 0; }
   .projects { padding-top: 76px; padding-bottom: 80px; }
   .project-grid { grid-template-columns: 1fr; gap: 13px; }
@@ -278,16 +279,23 @@ h2 { font-size: clamp(38px, 5vw, 62px); font-weight: 600; line-height: 1.04; mar
   .skills-content h2 { font-size: 46px; }
   .contact { padding-top: 65px; padding-bottom: 69px; grid-template-columns: 1fr; gap: 32px; }
   .contact-stamp { width: 114px; height: 114px; font-size: 9px; justify-self: end; }
-  .contact-main h2 { font-size: 45px; }
+  .contact-main h2 { font-size: 42px; }
   .site-footer { padding: 20px 7%; flex-wrap: wrap; gap: 11px 20px; }
   .site-footer > span:nth-of-type(1) { order: 2; width: calc(100% - 80px); text-align: right; }
   .site-footer > span:nth-of-type(2) { order: 3; }
   .site-footer > a:last-child { order: 4; margin-left: auto; }
 }
 @media (max-width: 390px) {
+  h1 { font-size: 50px; }
+  .intro-main h2, .section-heading h2, .path-content h2, .contact-main h2 { font-size: 37px; }
+  .process-copy h2 { font-size: 40px; }
+  .hero { padding-top: 42px; }
   .project-card { grid-template-columns: 1fr; }
   .project-visual, .game-visual { min-height: 155px; }
   .project-card-body { min-height: 250px; }
   .project-card h3 br { display: none; }
   .contact-links { gap: 14px; }
+  .path-row { grid-template-columns: 52px minmax(0, 1fr) 14px; gap: 7px; }
+  .path-year { font-size: 8px; }
+  .site-footer { column-gap: 12px; }
 }
