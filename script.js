@@ -17,3 +17,28 @@ siteNav.addEventListener("click", (event) => {
 });
 
 document.querySelector("#current-year").textContent = new Date().getFullYear();
+
+const animatedItems = document.querySelectorAll(
+  ".project-card, .academic-card, .path-row, .site-project, .skills-list > div"
+);
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -24px 0px" });
+
+  animatedItems.forEach((item, index) => {
+    item.classList.add("reveal");
+    item.style.setProperty("--reveal-delay", `${(index % 3) * 80}ms`);
+    revealObserver.observe(item);
+  });
+} else {
+  animatedItems.forEach((item) => item.classList.add("is-visible"));
+}
+
+document.body.classList.add("has-js");
