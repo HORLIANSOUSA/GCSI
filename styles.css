@@ -105,22 +105,37 @@ h2 { font-size: clamp(38px, 5vw, 62px); font-weight: 600; line-height: 1.04; mar
 .academic-heading h3 { font-size: 30px; line-height: 1.08; margin: 15px 0 0; }
 .academic-heading h3 span { color: #758277; }
 .academic-heading > p { max-width: 380px; margin: 0 0 3px; color: var(--muted); font-size: 12px; line-height: 1.7; }
-.academic-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.academic-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; min-height: 230px; padding: 19px; background: var(--paper); border-top: 3px solid var(--orange); overflow: hidden; }
-.academic-card::after { content: ""; position: absolute; width: 82px; height: 82px; border-radius: 50%; right: -31px; top: 35px; background: #f17b5210; pointer-events: none; }
-.history-card { border-color: #588785; }
-.history-card::after { background: #58878515; }
-.philosophy-card { border-color: #aa7e43; }
-.philosophy-card::after { background: #aa7e4315; }
-.statistics-card { border-color: #738b3a; }
-.statistics-card::after { background: #738b3a15; }
-.academic-card-head { position: relative; z-index: 1; width: 100%; display: flex; align-items: center; gap: 9px; color: var(--muted); font: 9px var(--mono); }
-.academic-card-head > span:nth-child(2) { margin-left: auto; text-align: right; font-size: 8px; }
-.academic-card h3 { position: relative; z-index: 1; margin: 27px 0 9px; font-size: 19px; line-height: 1.2; }
-.academic-card > p { position: relative; z-index: 1; color: var(--muted); font-size: 11px; line-height: 1.65; margin-bottom: 19px; }
-.academic-card-role { margin-top: auto; padding-top: 11px; width: 100%; display: grid; gap: 5px; border-top: 1px solid var(--line); }
-.academic-card-role span { color: var(--muted); font: 8px var(--mono); }
-.academic-card-role strong { font: 600 10px/1.5 var(--display); }
+.academic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.academic-card { min-height: 360px; }
+.academic-visual { isolation: isolate; }
+.academic-visual::before { content: ""; position: absolute; width: 56%; height: 62%; left: 22%; top: 18%; border: 1px solid #f2f3edc9; background: linear-gradient(145deg, #f2f3ed 0 48%, #d4ddd0 49%); transform: rotate(-7deg); box-shadow: 12px 10px 0 #17252245; }
+.academic-visual::after { content: ""; position: absolute; width: 48px; height: 48px; right: 10%; bottom: 12%; border: 1px solid #f2f3edc9; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 9px #f2f3ed1b; }
+.balada-visual { background: linear-gradient(145deg, #bd765d 0%, #a2544c 55%, #5b3949 55%); }
+.balada-visual::after { background: var(--green); }
+.orthonym-visual { background: repeating-linear-gradient(0deg, #225e60 0 22px, #317677 23px 24px); }
+.orthonym-visual::before { background: repeating-linear-gradient(0deg, transparent 0 15px, #40514a 16px 18px), #e7ede3; }
+.orthonym-visual::after { background: var(--orange); }
+.aleijadinho-visual { background: linear-gradient(160deg, #d2b36e, #96764f 56%, #4a655d 56%); }
+.aleijadinho-visual::before { width: 42%; height: 59%; left: 28%; top: 19%; background: linear-gradient(90deg, #e4d4b6, #a8987a); clip-path: polygon(28% 0, 72% 0, 80% 18%, 68% 22%, 76% 48%, 94% 70%, 87% 80%, 68% 67%, 63% 100%, 36% 100%, 31% 67%, 12% 80%, 5% 70%, 27% 48%, 34% 22%, 20% 18%); transform: none; box-shadow: none; }
+.aleijadinho-visual::after { background: #8bc5c6; }
+.feudos-visual { background: linear-gradient(160deg, #83aa81 0 45%, #536d54 45% 70%, #304e46 70%); }
+.feudos-visual::before { width: 56%; height: 54%; top: 23%; background: #e5d3a7; clip-path: polygon(0 36%, 20% 36%, 20% 20%, 31% 20%, 31% 36%, 46% 36%, 46% 10%, 57% 10%, 57% 36%, 77% 36%, 77% 20%, 88% 20%, 88% 36%, 100% 36%, 100% 100%, 0 100%); transform: none; box-shadow: none; }
+.feudos-visual::after { background: var(--orange); }
+.war-visual { background: repeating-linear-gradient(135deg, #7d3f3b 0 28px, #422f37 29px 56px); }
+.war-visual::before { background: linear-gradient(90deg, transparent 45%, #40514a 46% 54%, transparent 55%), linear-gradient(0deg, #d9d8c9 0 47%, #54635d 48% 51%, #d9d8c9 52%); transform: rotate(-4deg); }
+.war-visual::after { background: var(--green); }
+.brazil-visual { background: linear-gradient(145deg, #c88d45 0 45%, #315c57 45% 72%, #243f46 72%); }
+.brazil-visual::before { background: #e8d7aa; clip-path: polygon(15% 8%, 65% 0, 91% 30%, 72% 51%, 80% 72%, 55% 91%, 30% 78%, 7% 52%); transform: rotate(-8deg); }
+.brazil-visual::after { background: #c9ef63; }
+.egypt-visual { background: linear-gradient(160deg, #d5a85c 0 50%, #568887 50% 75%, #2d5c61 75%); }
+.egypt-visual::before { background: linear-gradient(90deg, #e2c991 0 38%, #f0e3c2 39% 61%, #e2c991 62%); transform: rotate(-4deg); }
+.egypt-visual::after { background: #8bc5c6; }
+.historicism-visual { background: repeating-linear-gradient(90deg, #725b70 0 28px, #584b61 29px 56px); }
+.historicism-visual::before { background: repeating-linear-gradient(0deg, transparent 0 18px, #758277 19px 21px), #e9e8dc; transform: rotate(5deg); }
+.historicism-visual::after { background: var(--orange); }
+.statistics-visual { background: linear-gradient(145deg, #568887, #284c51); }
+.statistics-visual::before { background: linear-gradient(0deg, transparent 0 18%, #758277 19% 20%, transparent 21% 39%, #758277 40% 41%, transparent 42% 59%, #758277 60% 61%, transparent 62%), linear-gradient(90deg, #e5e8dc 0 100%); transform: rotate(-5deg); }
+.statistics-visual::after { width: 36%; height: 40%; right: 16%; bottom: 22%; border-radius: 0; background: linear-gradient(90deg, #f17b52 0 20%, transparent 21% 30%, #c9ef63 31% 52%, transparent 53% 62%, #8bc5c6 63% 82%, transparent 83%); box-shadow: none; }
 
 .process { display: grid; grid-template-columns: 1fr 1fr; min-height: 535px; padding-top: 0; padding-bottom: 0; }
 .process-art { background: #e8c87c; position: relative; overflow: hidden; min-height: 470px; }
@@ -233,7 +248,6 @@ h2 { font-size: clamp(38px, 5vw, 62px); font-weight: 600; line-height: 1.04; mar
   .academic-heading { margin-top: 60px; flex-direction: column; gap: 14px; }
   .academic-heading h3 { font-size: 28px; }
   .academic-grid { grid-template-columns: 1fr; gap: 9px; }
-  .academic-card { min-height: 195px; padding: 18px; }
   .process { grid-template-columns: 1fr; padding-top: 0; padding-bottom: 0; }
   .process-art { min-height: 310px; }
   .process-copy { padding: 55px 0 62px; }
@@ -264,6 +278,5 @@ h2 { font-size: clamp(38px, 5vw, 62px); font-weight: 600; line-height: 1.04; mar
   .project-visual, .game-visual { min-height: 155px; }
   .project-card-body { min-height: 250px; }
   .project-card h3 br { display: none; }
-  .academic-card { min-height: 185px; }
   .contact-links { gap: 14px; }
 }
